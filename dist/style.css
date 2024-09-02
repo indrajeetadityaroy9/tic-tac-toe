@@ -4,7 +4,7 @@ td {
   width: 100px;
   text-align: center;
   vertical-align: middle;
-  font-family: "Comic Sans MS", cursive;
+  font-family: 'Inconsolata', sans-serif;
   font-size: 70px;
   cursor: pointer;
 }
@@ -13,21 +13,24 @@ table {
   border-collapse: collapse;
   position: absolute;
   left: 50%;
-  margin-left: -155px;
-  top: 50px;
+  top: 50%;
+  transform: translate(-50%, -50%); /* Centers the table exactly in the middle of the page */
 }
 
 .endgame {
   display: none;
-  width: 200px;
-  background-color: rgba(205, 133, 63, 0.8);
+  width: 300px; /* Adjusted width for better text fit */
+  background-color: rgba(255, 0, 0, 0.8); /* Semi-transparent red background */
   position: absolute;
   left: 50%;
-  margin-left: -100px;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  top: 50%;
+  transform: translate(-50%, -50%); /* Centers the div exactly */
+  padding: 50px; /* Unified padding for simplicity */
   text-align: center;
-  border-radius: 5px;
+  font-family: 'Inconsolata', sans-serif;
+  border-radius: 10px; /* Slightly larger radius for a smoother curve */
   color: white;
-  font-size: 2em;
+  font-size: 2em; /* Keeps large font size for visibility */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Adds shadow for 3D effect */
+  border: 2px solid #fff; /* Adds white border for contrast */
 }

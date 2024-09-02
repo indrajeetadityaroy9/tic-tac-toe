@@ -21,6 +21,7 @@ function startGame() {
   for (var i = 0; i < cells.length; i++) {
     cells[i].innerText = "";
     cells[i].style.removeProperty("background-color");
+    cells[i].classList.remove('winning-cell'); // Remove the animation class
     cells[i].addEventListener("click", turnClick, false);
   }
 }
@@ -54,13 +55,15 @@ function checkWin(board, player) {
 
 function gameOver(gameWon) {
   for (let index of winCombos[gameWon.index]) {
-    document.getElementById(index).style.backgroundColor =
-      gameWon.player == huPlayer ? "blue" : "red";
+    const cell = document.getElementById(index);
+    cell.style.backgroundColor = gameWon.player == huPlayer ? "blue" : "red";
+    cell.classList.add('winning-cell'); // Add the animation class
   }
   for (var i = 0; i < cells.length; i++) {
     cells[i].removeEventListener("click", turnClick, false);
   }
-  declareWinner(gameWon.player == huPlayer ? "You win!" : "You lose.");
+  declareWinner(gameWon.player == huPlayer ? "WIN! 👍" : "LOSS 👎");
+  setTimeout(startGame, 3000); // Restart the game after 3 seconds
 }
 
 function declareWinner(who) {
@@ -83,6 +86,8 @@ function checkTie() {
       cells[i].removeEventListener("click", turnClick, false);
     }
     declareWinner("Tie Game!");
+    // Set a timeout to restart the game after 3 seconds
+    setTimeout(startGame, 3000);
     return true;
   }
   return false;
